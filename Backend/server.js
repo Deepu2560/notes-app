@@ -6,6 +6,9 @@ require("dotenv").config();
 // importing all function from there files
 const connect = require("./src/Configs/db");
 
+// importing all controllers
+const UserController = require("./src/Controllers/userControle");
+
 // app to use all express functionalities
 const app = express();
 
@@ -13,6 +16,9 @@ const app = express();
 // cors to pass all cors errors whiling connecting fontend and backend
 app.use(express.json());
 app.use(cors());
+
+// /auth route
+app.use("/auth", UserController);
 
 // app.listen to start server on 8080 server
 app.listen(process.env.PORT || 8080, async () => {
