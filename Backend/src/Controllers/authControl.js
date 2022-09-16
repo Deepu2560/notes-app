@@ -19,7 +19,6 @@ const register = async (req, res) => {
     if (user)
       return res.status(400).send({
         error: true,
-        token: "",
         message: "Please check email and password",
       });
 
@@ -39,7 +38,6 @@ const register = async (req, res) => {
     );
     return res.status(502).send({
       error: true,
-      token: "",
       message: `=>> Server error while registering new user. ERROR: ${error.message}`,
     });
   }
@@ -53,7 +51,6 @@ const login = async (req, res) => {
     if (!user)
       return res.status(404).send({
         error: true,
-        token: "",
         message: "Please check email and password",
       });
 
@@ -62,7 +59,6 @@ const login = async (req, res) => {
     if (!match)
       return res.status(404).send({
         error: true,
-        token: "",
         message: "Please check email and password",
       });
 
@@ -80,7 +76,6 @@ const login = async (req, res) => {
     );
     return res.status(502).send({
       error: true,
-      token: "",
       message: `=>> Server error while login proccess of user. ERROR: ${error.message}`,
     });
   }
