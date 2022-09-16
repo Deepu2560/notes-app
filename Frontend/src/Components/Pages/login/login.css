@@ -1,0 +1,90 @@
+.login {
+  background-color: rgba(245, 245, 245, 0.5);
+  color: rgb(2, 14, 39);
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.login-label {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.login-input {
+  width: 50%;
+
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+
+  font-size: large;
+  font-weight: bold;
+
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+
+  transition: width 1s linear;
+}
+
+.login-input:focus {
+  width: 70%;
+}
+
+.login-signup-navigation {
+  color: blue;
+  text-decoration: underline;
+  font-size: larger;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  font-size: larger;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 15px 25px;
+  margin-top: 20px;
+}
+
+.login-button:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@media (max-width: 950px) {
+  .login {
+    width: 80%;
+  }
+}
+
+@media (max-width: 550px) {
+  .login {
+    width: 90%;
+  }
+
+  .login-input {
+    width: 60%;
+  }
+
+  .login-input:focus {
+    width: 85%;
+  }
+}
