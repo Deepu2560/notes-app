@@ -1,7 +1,7 @@
 // importing all required hooks and files
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./login.css";
+import "../../style/auth.css";
 
 // importing bootstrap elements and handlelogin function from loginAction
 import { Button, Container, Form } from "react-bootstrap";
@@ -27,41 +27,41 @@ export const LoginPage = () => {
 
   // HTML code display on screen
   return (
-    <Container className="login">
+    <Container className="auth">
       <Form>
         {/* email label and input tag */}
         <Form.Group>
-          <Form.Label className="login-label">Email</Form.Label>
+          <Form.Label className="auth-label">Email</Form.Label>
           <Form.Control
             type="email"
             value={email}
             name="email"
-            className="login-input"
+            className="auth-input"
             onChange={({ target }) => handleChanges(target)}
           />
         </Form.Group>
         {/* password label and input tag */}
         <Form.Group>
-          <Form.Label className="login-label">Password</Form.Label>
+          <Form.Label className="auth-label">Password</Form.Label>
           <Form.Control
             type="password"
             value={password}
             name="password"
-            className="login-input"
+            className="auth-input"
           />
         </Form.Group>
         {/* by clicking on this you can be directed to signup form */}
         <Form.Group>
-          <Form.Label className="login-signup-navigation">
+          <Form.Label className="auth-navigation">
             Don't have account
           </Form.Label>
         </Form.Group>
         {/* login button */}
         <Button
-          className="login-button"
+          className="auth-button"
           onClick={() => dispatch(handlelogin(dispatch, loginData))}
         >
-          Login
+          LOG IN
         </Button>
       </Form>
     </Container>
