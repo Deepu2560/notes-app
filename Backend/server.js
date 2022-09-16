@@ -8,6 +8,7 @@ const connect = require("./src/Configs/db");
 
 // importing all controllers
 const UserController = require("./src/Controllers/userControle");
+const NotesController = require("./src/Controllers/notesControl");
 
 // app to use all express functionalities
 const app = express();
@@ -17,8 +18,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// /auth route
+// /auth and /notes route
 app.use("/auth", UserController);
+app.use("/notes", NotesController);
 
 // app.listen to start server on 8080 server
 app.listen(process.env.PORT || 8080, async () => {
