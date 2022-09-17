@@ -5,3 +5,45 @@ This is a solo reactjs and nodejs full stack web app. In this user have to login
 ```
 This web app is not deployed, so please follow the below steps to start in localhost.
 ```
+
+## Steps to run application on local server
+
+* Clone this repository locally than to following for starting local server for backend or frontend.
+  
+* <kbd>npm start</kbd> ==> To start backend server go to Backend folder and then run this command to start bandend nodejs server.
+ 
+* <kbd>npm run dev</kbd> ==> To start reactjs server go to Frontend folder and then run this command to start reactjs server and then go to http://localhost:5173/
+<hr/>
+
+## TechStacks
+* NodeJS
+* JavaScript
+* express
+* Mongodb
+* Mongoose
+* cors
+* nodemon
+* Reactjs
+* React-Router
+* React-Redux
+<hr/>
+
+# Frontend
+
+* ##  Register new user 
+<img src="./image/signup.png"/>
+
+* ## Login with user of email and password
+<img src="./image/login.png"/>
+
+* ##  Notes page
+<img src="./image/notes.png"/>
+
+* ##  If user not added any notes
+<img src="./image/none.png"/>
+
+* ##  Long notes
+<img src="./image/long.png"/>
+
+<hr />
+Thank you ❤️
