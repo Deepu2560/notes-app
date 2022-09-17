@@ -1,5 +1,7 @@
+// importing all notes action types
 import { NOTE_LOADING, NOTE_FAILURE, NOTE_SUCCESS } from "./eventAction";
 
+// defining initial state
 const initialStore = {
   isLoading: false,
   isnotes: false,
@@ -7,6 +9,7 @@ const initialStore = {
   isFailure: false,
 };
 
+// reducer function
 export const EventReducer = (state = initialStore, { type, payload }) => {
   switch (type) {
     case NOTE_LOADING:

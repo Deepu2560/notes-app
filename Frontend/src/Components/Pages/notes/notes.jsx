@@ -1,7 +1,9 @@
+// importing all required hooks and files
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./notes.css";
 
+// importing bootstrap components and redux functions
 import { Button, Container, Form } from "react-bootstrap";
 import {
   fetchAllNotes,
@@ -9,18 +11,25 @@ import {
   deleteNote,
 } from "../../Redux/Events/eventAction";
 
+// main Notes page
 export const NotesPage = () => {
+  // getting token, isAuth and notes from redux
   const { token, isAuth } = useSelector((state) => state.login);
   const { notes } = useSelector((state) => state.event);
+
+  // dispatch to access redux action functions
   const dispatch = useDispatch();
 
+  // useEffect to get data on coming to notes page
   useEffect(() => {
     if (isAuth) dispatch(fetchAllNotes(dispatch, token));
   }, [token]);
 
+  // noteData state variable and its saample data format
   const noteSample = { title: "", description: "" };
   const [noteData, setNoteData] = useState(noteSample);
 
+  // handleChange and handleSubmit function to handle changes in input tags and add new notes
   const handleChange = ({ name, value }) => {
     setNoteData((prev) => ({ ...prev, [name]: value }));
   };
@@ -31,7 +40,10 @@ export const NotesPage = () => {
     }
   };
 
+  // values of title and description input tags
   const { title, description } = noteData;
+
+  // Main HTML codes
   return (
     <Container>
       <Container>
@@ -45,6 +57,7 @@ export const NotesPage = () => {
           New notes
         </h1>
         <Form className="notes-form">
+          {/* title input tag */}
           <Form.Control
             type="text"
             name="title"
@@ -53,6 +66,7 @@ export const NotesPage = () => {
             defaultValue={title}
             onChange={({ target }) => handleChange(target)}
           />
+          {/* description textarea */}
           <Form.Control
             as="textarea"
             rows={4}
@@ -62,6 +76,7 @@ export const NotesPage = () => {
             defaultValue={description}
             onChange={({ target }) => handleChange(target)}
           />
+          {/* button to add new note to database */}
           <Button
             variant="dark"
             className="notes-form-button"
@@ -71,6 +86,7 @@ export const NotesPage = () => {
           </Button>
         </Form>
       </Container>
+      {/* if(notes is available for this user then show all notes else show no data found) */}
       {notes.length ? (
         <Container className="notes">
           {notes.map(({ item, _id }, idx) => {

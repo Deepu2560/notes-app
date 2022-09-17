@@ -1,13 +1,17 @@
+// importing axios
 import axios from "axios";
 
+// createing and exporting all action type will be used in reducer
 export const NOTE_LOADING = "NOTE_LOADING";
 export const NOTE_FAILURE = "NOTE_FAILURE";
 export const NOTE_SUCCESS = "NOTE_SUCCESS";
 
+// all functions for changing state of reducer
 export const noteLoading = () => ({ type: NOTE_LOADING });
 export const noteFailure = () => ({ type: NOTE_FAILURE });
 export const noteSuccess = (payload) => ({ type: NOTE_SUCCESS, payload });
 
+// function to handle fetching all notes process
 export const fetchAllNotes = (dispatch, token) => {
   return function () {
     dispatch(noteLoading());

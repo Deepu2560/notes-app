@@ -1,5 +1,7 @@
+// importing all login action types
 import { LOG_IN_LOADING, LOG_IN, LOG_IN_ERROR, LOG_OUT } from "./loginAction";
 
+// defining initial state
 const initialStore = {
   isLoading: false,
   token: "",
@@ -7,6 +9,7 @@ const initialStore = {
   isError: false,
 };
 
+// reducer function
 export const LoginReducer = (state = initialStore, { type, payload }) => {
   switch (type) {
     case LOG_IN_LOADING:
