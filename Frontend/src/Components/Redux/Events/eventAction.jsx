@@ -13,7 +13,7 @@ export const fetchAllNotes = (dispatch, token) => {
     dispatch(noteLoading());
     axios
       .get("http://localhost:8080/notes/get", {
-        headers: { authorization: token },
+        headers: { authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
         const { error, event, message } = data;
@@ -25,11 +25,48 @@ export const fetchAllNotes = (dispatch, token) => {
         return dispatch(noteSuccess(event));
       })
       .catch((error) => {
-        alert(
-          "Error! Something went wrong please try log out and login again.",
-        );
         console.log("fetching notes data error:", error);
         return dispatch(noteFailure());
+      });
+  };
+};
+
+// adding new note to database by sending data to backend
+export const addNewNote = (dispatch, token, notedata) => {
+  return function () {
+    axios
+      .post("http://localhost:8080/notes/add", notedata, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then(({ data }) => {
+        const { error, message } = data;
+        if (error) {
+          alert(message);
+        }
+        return dispatch(fetchAllNotes(dispatch, token));
+      })
+      .catch((error) => {
+        console.log("adding new Note client side server error:", error);
+      });
+  };
+};
+
+// deleting one note from database
+export const deleteNote = (dispatch, token, id) => {
+  return function () {
+    axios
+      .delete(`http://localhost:8080/notes/delete/${id}`, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then(({ data }) => {
+        const { error, message } = data;
+        if (error) {
+          alert(message);
+        }
+        return dispatch(fetchAllNotes(dispatch, token));
+      })
+      .catch((error) => {
+        console.log("adding new Note client side server error:", error);
       });
   };
 };

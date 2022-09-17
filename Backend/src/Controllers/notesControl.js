@@ -11,7 +11,10 @@ const router = express.Router();
 // notes/get to get all notes of an user
 router.get("/get", Authenticate, async (req, res) => {
   try {
-    const event = await Notes.find({ userId: req.user._id }).lean().exec();
+    const event = await Notes.find({ userId: req.user._id })
+      .sort({ updatedAt: -1 })
+      .lean()
+      .exec();
 
     console.log(`${req.user.email} getting its all notes`);
 
@@ -47,7 +50,7 @@ router.post("/add", Authenticate, async (req, res) => {
       .status(200)
       .send({ error: false, event, message: "New note added successfully" });
   } catch (error) {
-    console.log("Notes add server Error :", error);
+    console.log("Notes add server Error :", error, req.body);
 
     return res.status(502).send({
       error: true,

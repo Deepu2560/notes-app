@@ -19,7 +19,12 @@ export const NavbarPage = () => {
         expand="lg"
         variant="dark"
         bg="dark"
-        style={{ paddingLeft: 10, paddingRight: 10, fontWeight: "bold" }}
+        style={{
+          paddingLeft: 10,
+          paddingRight: 10,
+          fontWeight: "bold",
+          boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+        }}
       >
         <Navbar.Brand>Notes</Navbar.Brand>
         {!isAuth ? (
