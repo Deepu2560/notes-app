@@ -5,6 +5,7 @@ This is a solo reactjs and nodejs full stack web app. In this user have to login
 ```
 This web app is not deployed, so please follow the below steps to start in localhost.
 ```
+<hr/>
 
 ## Steps to run application on local server
 
@@ -16,16 +17,11 @@ This web app is not deployed, so please follow the below steps to start in local
 <hr/>
 
 ## TechStacks
-* NodeJS
-* JavaScript
-* express
-* Mongodb
-* Mongoose
-* cors
-* nodemon
-* Reactjs
-* React-Router
-* React-Redux
+```
+Frontend :- HTML | CSS | Javascript | Reactjs | React-Redux | Redux-Thunk | React-Bootstrap | React-Router
+
+Backend :- Nodejs | Express | MongoDB | Mongoose | cors | jsonwebtoken | bcryptjs 
+```
 <hr/>
 
 # Frontend
