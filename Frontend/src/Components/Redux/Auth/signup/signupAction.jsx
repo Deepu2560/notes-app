@@ -19,7 +19,10 @@ export const handlesignup = (dispatch, signupdata) => {
   return function () {
     dispatch(signupLoading());
     axios
-      .post(`http://localhost:8080/auth/register`, signupdata)
+      .post(
+        `https://deepu2560-notes-app.herokuapp.com/auth/register`,
+        signupdata,
+      )
       .then(({ data }) => {
         const { error, token, message } = data;
         if (error) {

@@ -16,7 +16,7 @@ export const fetchAllNotes = (dispatch, token) => {
   return function () {
     dispatch(noteLoading());
     axios
-      .get("http://localhost:8080/notes/get", {
+      .get("https://deepu2560-notes-app.herokuapp.com/notes/get", {
         headers: { authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
@@ -39,7 +39,7 @@ export const fetchAllNotes = (dispatch, token) => {
 export const addNewNote = (dispatch, token, notedata) => {
   return function () {
     axios
-      .post("http://localhost:8080/notes/add", notedata, {
+      .post("https://deepu2560-notes-app.herokuapp.com/notes/add", notedata, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
@@ -59,7 +59,7 @@ export const addNewNote = (dispatch, token, notedata) => {
 export const deleteNote = (dispatch, token, id) => {
   return function () {
     axios
-      .delete(`http://localhost:8080/notes/delete/${id}`, {
+      .delete(`https://deepu2560-notes-app.herokuapp.com/notes/delete/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
